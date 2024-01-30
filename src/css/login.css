@@ -1,0 +1,12 @@
+.btnLogin::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00B0DC;
+  transform: skew(-20deg);
+  border-radius: 15px;
+  z-index: -1;
+}
