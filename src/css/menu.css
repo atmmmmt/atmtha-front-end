@@ -1,0 +1,10 @@
+.menu .active {
+  background-color: #00B0DC !important;
+  border-radius: 10px;
+}
+.menu .active img {
+  filter: brightness(0) invert(1);
+}
+.menu .active span {
+  color: #fff;
+}
