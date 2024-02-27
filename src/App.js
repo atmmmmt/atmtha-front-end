@@ -4,14 +4,28 @@ import { EditSubject } from "./pages/EditSubject";
 import { AddQuestion } from "./pages/AddQuestion";
 import { EditQuestion } from "./pages/EditQuestion";
 import { Lessons } from "./pages/Lessons";
+import { CenterSales } from "./pages/CenterSales";
+import { AddCenter } from "./pages/AddCenter";
+import { EditCenter } from "./pages/EditCenter";
+import { EditLesson } from "./pages/EditLesson";
+import { AddCodeDepartment } from "./pages/AddCodeDepartment";
+import { AddPackageMaterial } from "./pages/AddPackageMaterial";
+import { AddPackageDepartment } from "./pages/AddPackageDepartment";
+import { AddCodeMaterial } from "./pages/AddCodeMaterial";
+import { AddLessons } from "./pages/AddLessons";
+import { AddUnits } from "./pages/AddUnits";
 import Home from "./pages/Home";
 import Subjects from "./pages/Subjects";
 import Question from "./pages/Question";
 import AddSubject from "./pages/AddSubject";
+import Codes from "./pages/Codes";
+import Notification from "./pages/Notification";
+import Accounts from "./pages/Accounts";
+import Packages from "./pages/Packages";
+import StartChat from "./pages/StartChat";
+import Messages from "./pages/Messages";
+import Admins from "./pages/Admins";
 import "./App.css";
-import { CenterSales } from "./pages/CenterSales";
-import { AddCenter } from "./pages/AddCenter";
-import { EditCenter } from "./pages/EditCenter";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/qestions",
         element: <Question />,
+      },
+      {
+        path: "/codes",
+        element: <Codes />,
       },
       {
         path: "/lessons",
@@ -44,16 +62,71 @@ const router = createBrowserRouter([
         element: <AddCenter />,
       },
       {
-        path: "/editSubject",
+        path: "/editSubject/:id",
         element: <EditSubject />,
       },
       {
-        path: "/editQuestion",
+        path: "/editQuestion/:id",
         element: <EditQuestion />,
       },
       {
-        path: "/editCenter",
+        path: "/editCenter/:id",
         element: <EditCenter />,
+      },
+      {
+        path: "/editLesson",
+        element: <EditLesson />,
+      },
+      {
+        path: "/notifications",
+        element: <Notification />,
+      },
+      {
+        path: "/managerAccounts",
+        element: <Accounts />,
+      },
+      {
+        path: "/addCodeDepartment",
+        element: <AddCodeDepartment />,
+      },
+      {
+        path: "/addCode",
+        element: <AddCodeMaterial />,
+      },
+      {
+        path: "/addPackage",
+        element: <AddPackageMaterial />,
+      },
+
+      {
+        path: "/addPackageDepartment",
+        element: <AddPackageDepartment />,
+      },
+      {
+        path: "/addLesson",
+        element: <AddLessons />,
+      },
+      {
+        path: "/addUnits",
+        element: <AddUnits />,
+      },
+      {
+        path: "/packages",
+        element: <Packages />,
+      },
+      {
+        path: "/admins",
+        element: <Admins />,
+      },
+      {
+        path: "/messages",
+        element: <Messages />,
+        children: [
+          {
+            index: true,
+            element: <StartChat />,
+          },
+        ],
       },
     ],
   },

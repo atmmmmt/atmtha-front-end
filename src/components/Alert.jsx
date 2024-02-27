@@ -30,7 +30,12 @@ export default function Alert(props) {
               <img src="/assests/parcode.svg" alt="" />
             </div>
           )}
-          <MiniButton title={props.buttonTitle} setOpen={props.setOpen} />
+          <MiniButton
+            title={props.buttonTitle}
+            setOpen={props.setOpen}
+            id={props.id}
+            onclick={props.onclick}
+          />
           <img
             src={props.img}
             className="absolute bottom-0 right-[18px]"

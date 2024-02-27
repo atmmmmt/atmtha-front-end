@@ -1,41 +1,43 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Alert from "../Alert";
 import Pop from "../Pop";
-import { useNavigate } from "react-router-dom";
 
-export default function QuestionCard() {
+export default function QuestionCard(props) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="subjectCard justify-center p-[18px] w-[317px] h-[232px] relative rounded-[15px] shadow-shadow bg-[white] flex flex-col">
+    <div
+      className="subjectCard p-[18px] w-[272px] h-[226px] relative rounded-[15px] shadow-shadow bg-[white] flex flex-col justify-between"
+      id={props.ID}
+    >
       <Alert
         open={open}
         setOpen={setOpen}
-        title="حذف مادة؟!"
+        title="حذف السؤال!"
         buttonTitle="تأكيد"
         img="/assests/AlertDeleteSubject.svg"
-        paragraph="هل أنت متأكد من حذف المادة ستحذف أيضا جميع الاسئلة والبيانات؟"
+        paragraph="هل أنت متأكد من حذف السؤال ستحذف أيضا جميع الاسئلة والبيانات؟"
+        onclick={props.ondelete()}
       />
       <Pop open={open} setOpen={setOpen} />
-      <img
-        src="/assests/editIcon.svg"
-        className="w-[19px] h-[19px] absolute left-[20px] top-[20px] cursor-pointer"
-        alt=""
-        onClick={() => navigate("/editQuestion")}
-      />
-      <img
-        src="/assests/deleteIcon.svg"
-        onClick={() => setOpen(true)}
-        className="w-[19px] cursor-pointer h-[19px] absolute left-[20px] bottom-[20px]"
-        alt=""
-      />
-      <div className="font-medium">
-        <p className="	 text-[20px] mb-[18px]">رقم السؤال</p>{" "}
-        <p className="text-[14px]">
-          هنا يتم كتابة نص السؤال , هنا يتم كتابة نص السؤال , هنا يتم كتابة نص
-          السؤال , هنا يتم كتابة نص السؤال , هنا يتم كتابة نص السؤال , هنا يتم
-          كتابة نص السؤال.....
-        </p>
+      <div className="flex items-center justify-between">
+        <p className="text-[20px]">{props.number}</p>
+        <img
+          src="/assests/editIcon.svg"
+          className="w-[19px] h-[19px] cursor-pointer"
+          alt=""
+          onClick={() => navigate(`/editQuestion/${props.ID}`)}
+        />
+      </div>
+      <p className="text-[14px] font-medium">{props.ques}</p>
+      <div className="flex justify-end">
+        <img
+          src="/assests/deleteIcon.svg"
+          onClick={() => setOpen(true)}
+          className="w-[19px] cursor-pointer h-[19px] absolute left-[20px] bottom-[20px]"
+          alt=""
+        />
       </div>
     </div>
   );

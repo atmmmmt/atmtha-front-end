@@ -11,9 +11,11 @@ export const Input = (props) => {
           {props.label}
         </label>
         <input
+          required
           type={props.type}
           className="w-full px-[14px] py-[10px] border-solid border-[1px] border-[#004556] text-input rounded-[15px] cursor-text overflow-y-auto focus:outline-none"
           id={props.id}
+          name={props.name}
         />
       </div>
     </Fragment>

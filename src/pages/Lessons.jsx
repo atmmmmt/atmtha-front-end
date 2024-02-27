@@ -1,24 +1,15 @@
 import { Fragment, useState } from "react";
 import { LessonsCard } from "./../components/LessonsCard/LessonsCard";
-import { ThemeProvider, createTheme } from "@mui/material";
-import Pagination from "@mui/material/Pagination";
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#00B0DC",
-    },
-    text: {
-      primary: "#004556",
-    },
-  },
-});
+import DrowbSubjects from "../components/QuestionCard/DrowbSubjects";
+import PaginationCom from "../components/Pagination";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 export const Lessons = () => {
   const [state, setStaet] = useState(true);
 
   return (
     <Fragment>
-      <div className="subjects bg-bg calc100 w-[100%] ">
+      <div className="lessons bg-bg w-[100%] ">
         <div className="flex gap-[21px]">
           <button
             onClick={() => setStaet(true)}
@@ -39,33 +30,53 @@ export const Lessons = () => {
         </div>
         <div className="flex justify-between mt-[25px] items-center">
           <div className="flex items-center gap-[8px]">
-            <span>رياضيات</span>
-            <span>الوحدة الاولى</span>
-            <span>الدرس الأول</span>
-          </div>
-          <span className="text-main text-[18px] underline cursor-pointer">
-            إضافة درس جديدة
-          </span>
-        </div>
-        <div className="cardsLessons grid grid-cols-3 gap-[40px_60px] mt-[43px]">
-          <LessonsCard />
-          <LessonsCard />
-          <LessonsCard />
-          <LessonsCard />
-          <LessonsCard />
-          <LessonsCard />
-        </div>
-        <ThemeProvider theme={theme}>
-          <div className="flex justify-center w-full mt-[60px]">
-            <Pagination
-              count={12}
-              shape="rounded"
-              variant="outlined"
-              color="primary"
-              dir="ltr"
+            <DrowbSubjects
+              value="المادة"
+              text={[
+                "رياضيات",
+                "رياضيات",
+                "رياضيات",
+                "رياضيات",
+                "رياضيات",
+                "رياضيات",
+              ]}
+            />
+            <DrowbSubjects
+              value="الوحدة"
+              text={[
+                "الوحدة الاولى",
+                "الوحدة الاولى",
+                "الوحدة الاولى",
+                "الوحدة الاولى",
+                "الوحدة الاولى",
+                "الوحدة الاولى",
+              ]}
+            />
+            <DrowbSubjects
+              value={"الدرس"}
+              text={[
+                "الدرس الأول",
+                "الدرس الأول",
+                "الدرس الأول",
+                "الدرس الأول",
+                "الدرس الأول",
+                "الدرس الأول",
+              ]}
             />
           </div>
-        </ThemeProvider>
+          <NavLink to="/addLesson">
+            <span className="text-main text-[18px] underline cursor-pointer">
+              إضافة درس جديدة
+            </span>
+          </NavLink>
+        </div>
+        <div className="flex flex-col justify-between h-full">
+          <div className="cardsLessons grid grid-cols-3 gap-[40px_60px] mt-[43px]">
+            <LessonsCard />
+            <LessonsCard />
+          </div>
+          <PaginationCom />
+        </div>
       </div>
     </Fragment>
   );

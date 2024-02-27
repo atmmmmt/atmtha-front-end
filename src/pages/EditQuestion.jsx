@@ -4,7 +4,7 @@ import { FormEditQuestion } from "../components/FormEditQuestion/FormEditQuestio
 export const EditQuestion = () => {
   return (
     <Fragment>
-      <HeadInputs title="تعديل السؤال الأول" />
+      <HeadInputs title="تعديل السؤال" />
       <FormEditQuestion />
     </Fragment>
   );
